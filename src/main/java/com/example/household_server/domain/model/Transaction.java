@@ -16,6 +16,7 @@ public class Transaction {
     private String content;
     private String date;
     private String type;
+    private String email;
 
     public void setId(Long id) {
         this.id = id;
@@ -52,6 +53,14 @@ public class Transaction {
     }
     public String getType() {
         return type;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
     
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/access.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/access-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [ACCESS] %msg%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+  </appender>
+
+  <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/error.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/error-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [ERROR] %msg%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+  </appender>
+
+  <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/debug.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/debug-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [DEBUG] %msg%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+  </appender>
+
+  <logger name="ACCESS_LOGGER" level="INFO" additivity="false" >
+    <appender-ref ref="ACCESS"/>
+  </logger>
+
+  <logger name="ERROR_LOGGER" level="ERROR" additivity="false">
+    <appender-ref ref="ERROR"/>
+  </logger>
+
+  <logger name="DEBUG_LOGGER" level="DEBUG" additivity="false">
+    <appender-ref ref="DEBUG"/>
+  </logger>
+
+</configuration>
